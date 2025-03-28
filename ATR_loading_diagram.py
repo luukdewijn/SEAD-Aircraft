@@ -18,7 +18,7 @@ l_f = 27.165 #fuselage length [m]
 b_n = 1.224 #nacelle width [m]
 l_nac= 3.408 #nacelle length [m]
 l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
-X_LEMAC= 
+X_LEMAC= #!!!
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
 l_h = 13.56 #horizontal tail arm [m]
 print(l_n)
@@ -27,12 +27,12 @@ Lambda_w = 4.120423513 * np.pi/180 #sweep angle [rad] (@LE calculated from 3deg 
 Lambda_h_4 = 8 * np.pi/180#sweep angle [rad]
 Lambda_h_2 = 5.646719292 * np.pi/180 #sweep angle [rad]
 horizontal_efficiency = #horizontal tail efficiency
-oswald_efficiency = 0.8 #horizontal tail efficiency !!! 
+oswald_efficiency = 0.8 #horizontal tail efficiency !!!
 downwash_rate = 0 #downwash per AOA, 0 for T-tail !!!
 V_ratio = 1 #vertical tail velocity ratio !!!
 V_cruise = 275 * 0.5144444444 #cruise speed [m/s] at FL170, 97%MTOW
-V_approach = #approach speed [m/s] !!!
-k_n =  #nacelle factor !!!
+V_approach = 60.4 #approach speed [m/s]
+k_n = 1.072  #nacelle factor !!!
 T_cruise = -18.68 + 273.15 #cruise temperature [K] at FL170 
 delta_flap = 0 #flap deflection [rad] !!!
 C_m_ac_flap = #zero lift moment coefficient due to flap deflection above (Read from graph L7 S23)
