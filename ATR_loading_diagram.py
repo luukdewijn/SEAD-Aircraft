@@ -2,22 +2,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #========== STABILITY AND CONTROL PARAMETERS ==========
-S =  #wing area [m^2]
-S_h =  #horizontal tail area [m^2]
-A_w =  #aspect ratio of wing
-A_h =  #aspect ratio of horizontal tail
+S = 61 #wing area [m^2]
+S_h = 11.59 #horizontal tail area [m^2]
+A_w = 12 #aspect ratio of wing
+A_h = 6 #aspect ratio of horizontal tail
 S_r = S_h/S #tail volume ratio 
-c =  #mean aerodynamic chord [m]
-c_r =  #root chord [m]
-b =  #wing span [m]
-lambda_w =  #taper ratio
-h_f =  #fuselage height [m]
-b_f =  #fuselage width [m]
-l_f =  #fuselage length [m]
-b_n =  #nacelle width [m]
-l_nac=  #nacelle length [m]
-l_fn =  #distance from the wing leading to nose [m]?? not sure about this
-X_LEMAC=
+c = 2.1185 #mean aerodynamic chord [m]
+c_r = 2.57 #root chord [m]
+c_t = 1.59 #tip chord [m]
+b = 27.05 #wing span [m]
+lambda_w = c_t / c_r #taper ratio
+h_f = 7.65 #fuselage height [m]
+b_f = 2.865 #fuselage width [m]
+l_f = 27.165 #fuselage length [m]
+b_n = 1.224 #nacelle width [m]
+l_nac= 3.408 #nacelle length [m]
+l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
+X_LEMAC= 
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
 l_h =  #horizontal tail arm [m]
 print(l_n)
