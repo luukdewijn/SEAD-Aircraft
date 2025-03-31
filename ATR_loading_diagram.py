@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 #========== STABILITY AND CONTROL PARAMETERS ==========
 S = 61 #wing area [m^2]
 S_h = 11.59 #horizontal tail area [m^2]
-A_w = 12 #aspect ratio of wing
-A_h = 6 #aspect ratio of horizontal tail
+A_w = 12 #aspect ratio of wing                      #TODO:for step 2 needs to be +20%
+A_h = 6 #aspect ratio of horizontal tail            #TODO:for step 2 needs to be +20%
 S_r = S_h/S #tail volume ratio 
 c = 2.1185 #mean aerodynamic chord [m]
 c_r = 2.57 #root chord [m]
@@ -15,8 +15,8 @@ lambda_w = c_t / c_r #taper ratio
 h_f = 7.65 #fuselage height [m]
 b_f = 2.865 #fuselage width [m]
 l_f = 27.165 #fuselage length [m]
-b_n = 1.224 #nacelle width [m]
-l_nac= 3.408 #nacelle length [m]
+b_n = 1.224 #nacelle width [m]                      #TODO:for step 2 needs to be +25%
+l_nac= 3.408 #nacelle length [m]                    #TODO:for step 2 needs to be +30%
 l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
 X_LEMAC= ... #!!!
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
@@ -71,14 +71,14 @@ print("taper wing:", lambda_w)
 # ======== LOADING DIAGRAM SHIT ========
 
 #CG VALUES
-OEW = ... #operating empty weight [N]
+OEW = ... #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
 OEW_kg = OEW/9.81 #operative emty weight [kg]
 OEW_cg = ... #operating empty weight cg location [m]
 X_LEMAC = X_LEMAC #[m]
 
 front_seat_cg = ... * l_f #x_cg of front row seats
 seat_pitch = 29 * 0.0254 #seat pitch in meters
-seat_rows = 18 #number of seat rows
+seat_rows = 18 #number of seat rows             #TODO:for step 2 last 4 rows removed
 passenger_weight = 90 #average passenger weight in [kg] incl. carry-on luggage
 
 total_cargo_weight = ... # kg, max payload - pax
@@ -92,18 +92,18 @@ cargo_weight_rear = cargo_rear_fraction * total_cargo_weight
 cargo_front_cg = ... * l_f #cargo cg location of front cargo hold FIND THESE
 cargo_rear_cg = ... * l_f #cargo cg location of rear cargo hold FIND THESE
 
-fuel_mass = ... #Fuel mass [kg]
+fuel_mass = ... #Fuel mass [kg]                             #TODO les to compensate for ohter weight
 fuel_fraction_wing = 0 # FIND THESE FRACTIONS
 fuel_fraction_center = 1
 
-battery = False #True if battery is present, False if not
+battery = False #True if battery is present, False if not  #TODO step 2 there is 2 batery
 
-battery_mass= ... #battery mass [kg]
+battery_mass= ... #battery mass [kg]                        #TODO first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
 
 fuel_cg_wing = ... * l_f #fuel cg location in wing FIND THESE
 fuel_cg_center = ... #fuel cg location in center (=location of propulsion group)
 
-battery_mass_cg = ... #removable battery cg
+battery_mass_cg = ... #removable battery cg               # = cargo_front_cg * 300 +   cargo_rear_cg *1000
 
 full_cg_list = np.array([])
 
