@@ -26,7 +26,7 @@ print(l_n)
 Lambda_w = 4.120423513 * np.pi/180 #sweep angle [rad] (@LE calculated from 3deg at 1/4 chord)
 Lambda_h_4 = 8 * np.pi/180#sweep angle [rad]
 Lambda_h_2 = 5.646719292 * np.pi/180 #sweep angle [rad]
-horizontal_efficiency = #horizontal tail efficiency
+horizontal_efficiency = #horizontal tail efficiency FIND THESE
 oswald_efficiency = 0.8 #horizontal tail efficiency !!!
 downwash_rate = 0 #downwash per AOA, 0 for T-tail !!!
 V_ratio = 1 #vertical tail velocity ratio !!!
@@ -35,16 +35,16 @@ V_approach = 60.4 #approach speed [m/s]
 k_n = 1.072  #nacelle factor !!!
 T_cruise = -18.68 + 273.15 #cruise temperature [K] at FL170 
 delta_flap = 0 #flap deflection [rad] !!!
-C_m_ac_flap = #zero lift moment coefficient due to flap deflection above (Read from graph L7 S23)
-C_L_0 =  #zero AOA lift coefficient. !!!
-C_L_w_cruise = #reference aerodynamic fokker !!!
+C_m_ac_flap = #zero lift moment coefficient due to flap deflection above (Read from graph L7 S23) FIND THESE
+C_L_0 =  #zero AOA lift coefficient. !!! FIND THESE
+C_L_w_cruise = #reference aerodynamic fokker !!! FIND THESE
 rho_0 = 1.225 #air density at sea level [kg/m^3]
 rho_cruise = 0.72176 #air density at cruise altitude (FL170=1700ft) [kg/m^3]
 MTOW = 23000 * 9.81 #max take-off weight [N]
-C_m_0_airfoil = #FIND THIS -taken from DATCOM+assuming NACA63(2)-415
+C_m_0_airfoil = #FIND THIS -taken from DATCOM+assuming NACA63(2)-415 FIND THESE
 print(b_n*l_nac/b)
-C_m_0_nacelle = # ASSUME LAMBDA = 0, low wing config a/c, ASSUME no fillet
-C_L_h = ... * A_h**(1/3) #Horizontal tail lift coefficient (FORMULA FROM ADSSE L8 S17)
+C_m_0_nacelle = # ASSUME LAMBDA = 0, low wing config a/c, ASSUME no fillet FIND THESE
+C_L_h = ... * A_h**(1/3) #Horizontal tail lift coefficient (FORMULA FROM ADSSE L8 S17) FIND THESE
 print(C_L_h)
 
 a_approach = np.sqrt(1.4*287*288.15) #speed of sound at 288.15K [m/s]
@@ -73,15 +73,15 @@ print("taper wing:", lambda_w)
 #CG VALUES
 OEW = ... #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
 OEW_kg = OEW/9.81 #operative emty weight [kg]
-OEW_cg = ... #operating empty weight cg location [m]
+OEW_cg = ... #operating empty weight cg location [m] FIND THESE
 X_LEMAC = X_LEMAC #[m]
 
-front_seat_cg = ... * l_f #x_cg of front row seats
+front_seat_cg = ... * l_f #x_cg of front row seats FIND THESE
 seat_pitch = 29 * 0.0254 #seat pitch in meters
 seat_rows = 18 #number of seat rows             #TODO:for step 2 last 4 rows removed
 passenger_weight = 90 #average passenger weight in [kg] incl. carry-on luggage
 
-total_cargo_weight = ... # kg, max payload - pax
+total_cargo_weight = ... # kg, max payload - pax FIND THESE
 
 cargo_front_fraction = 0.555 #fraction of cargo in front cargo hold FIND THESE 
 cargo_rear_fraction = 0.445 #fraction of cargo in rear cargo hold
@@ -103,7 +103,7 @@ battery_mass= ... #battery mass [kg]                        #TODO first batery (
 fuel_cg_wing = ... * l_f #fuel cg location in wing FIND THESE
 fuel_cg_center = ... #fuel cg location in center (=location of propulsion group)
 
-battery_mass_cg = ... #removable battery cg               # = cargo_front_cg * 300 +   cargo_rear_cg *1000
+battery_mass_cg = ... #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
 
 full_cg_list = np.array([])
 
