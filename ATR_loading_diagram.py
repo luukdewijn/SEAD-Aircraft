@@ -18,7 +18,7 @@ l_f = 27.165 #fuselage length [m]
 b_n = 1.224 #nacelle width [m]                      #TODO:for step 2 needs to be +25%
 l_nac= 3.408 #nacelle length [m]                    #TODO:for step 2 needs to be +30%
 l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
-X_LEMAC= 11.84 # [m] van de FCOM
+X_LEMAC= 11.84 # [m] 
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
 l_h = 13.56 #horizontal tail arm [m]
 print(l_n)
@@ -27,7 +27,7 @@ Lambda_w = 4.120423513 * np.pi/180 #sweep angle [rad] (@LE calculated from 3deg 
 Lambda_h_4 = 3 * np.pi/180 #sweep angle [rad]
 Lambda_h_2 = 1.877 * np.pi/180 #sweep angle [rad]
 horizontal_efficiency = 0.8 #horizontal tail efficiency FIND THESE
-oswald_efficiency = 0.8 #horizontal tail efficiency !!!
+oswald_efficiency = 0.8 #horizontal tail efficiency
 downwash_rate = 0 #downwash per AOA, 0 for T-tail
 V_ratio = 1 #vertical tail velocity ratio
 V_cruise = 275 * 0.5144444444 #cruise speed [m/s] at FL170, 97%MTOW
@@ -36,14 +36,14 @@ k_n = -4  #nacelle factor
 T_cruise = -18.68 + 273.15 #cruise temperature [K] at FL170 
 delta_flap = 0.52 #flap deflection [rad] Gebaseerd op landing setting van 30 degrees
 C_m_ac_flap = -0.30 #zero lift moment coefficient due to flap deflection above (Read from graph L7 S23)
-C_L_0 = 0.35 #zero AOA lift coefficient. Rough estimate?!!!
-C_L_w_cruise = .5 #reference aerodynamic ATR 72 lift coefficient at cruise calculation
+C_L_0 = 0.30 #zero AOA lift coefficient. Rough estimate
+C_L_w_cruise = .6 #reference aerodynamic ATR 72 lift coefficient at cruise calculation
 rho_0 = 1.225 #air density at sea level [kg/m^3]
 rho_cruise = 0.72176 #air density at cruise altitude (FL170=1700ft) [kg/m^3]
 MTOW = 23000 * 9.81 #max take-off weight [N]
-C_m_0_airfoil = -0.09 # Rough estimate?!!!
+C_m_0_airfoil = -0.09 # Rough estimate?
 print(b_n*l_nac/b)
-C_m_0_nacelle = -0.03 # Rough estimate?!!!
+C_m_0_nacelle = 0.004 # nacelle zero lift moment coefficient
 C_L_h = -0.35 * A_h**(1/3) #Horizontal tail lift coefficient (FORMULA FROM ADSSE L8 S17)
 print(C_L_h)
 
@@ -85,9 +85,9 @@ print("taper wing:", lambda_w)
 #CG VALUES
 OEW = 13311*9.81 #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
 OEW_kg = 13311 #operative emty weight [kg]
-OEW_cg = 15 #operating empty weight cg location [m] !!!
+OEW_cg = 10.71 #operating empty weight cg location [m] 
 
-front_seat_cg = .25 * l_f #x_cg of front row seats !!!
+front_seat_cg = .248 * l_f #x_cg of front row seats
 seat_pitch = 29 * 0.0254 #seat pitch in meters
 seat_rows = 18 #number of seat rows             #TODO:for step 2 last 4 rows removed
 passenger_weight = 90 #average passenger weight in [kg] incl. carry-on luggage
@@ -100,19 +100,19 @@ cargo_rear_fraction = 0.445 #fraction of cargo in rear cargo hold
 cargo_weight_front = cargo_front_fraction * total_cargo_weight
 cargo_weight_rear = cargo_rear_fraction * total_cargo_weight
 
-cargo_front_cg = .15 * l_f #cargo cg location of front cargo hold !!!
-cargo_rear_cg = .8 * l_f #cargo cg location of rear cargo hold !!!
+cargo_front_cg = .17 * l_f #cargo cg location of front cargo hold
+cargo_rear_cg = .76 * l_f #cargo cg location of rear cargo hold
 
 fuel_mass = 2689 #Fuel mass [kg]                             #TODO les to compensate for ohter weight
-fuel_fraction_wing = 0 # FIND THESE FRACTIONS
-fuel_fraction_center = 1
+fuel_fraction_wing = 1 
+fuel_fraction_center = 0
 
 battery = False #True if battery is present, False if not  #TODO step 2 there is 2 batery
 
 battery_mass= 0 #battery mass [kg]                        #TODO first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
 
-fuel_cg_wing = .55 * l_f #fuel cg location in wing !!!
-fuel_cg_center = 15 #fuel cg location in center (=location of propulsion group) !!!
+fuel_cg_wing = .37 * l_f #fuel cg location in wing 
+fuel_cg_center = 7.21 #fuel cg location in center (=location of propulsion group)
 
 battery_mass_cg = 0 #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
 
