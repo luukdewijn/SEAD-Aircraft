@@ -103,20 +103,20 @@ cargo_weight_rear = cargo_rear_fraction * total_cargo_weight
 cargo_front_cg = .15 * l_f #cargo cg location of front cargo hold !!!
 cargo_rear_cg = .8 * l_f #cargo cg location of rear cargo hold !!!
 
-fuel_mass = 2689 #Fuel mass [kg]                             #TODO les to compensate for ohter weight
+fuel_mass = 18910.63/9.81 #Fuel mass [kg]                             #DONE les to compensate for ohter weight
 fuel_fraction_wing = 0 # FIND THESE FRACTIONS
 fuel_fraction_center = 1
 
-battery = True #True if battery is present, False if not  #TODO step 2 there is 2 batery
+battery = True #True if battery is present, False if not  #DONE step 2 there is 2 batery
 
-front_battery_mass= 300 #battery mass [kg]                        #TODO first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
+front_battery_mass= 300 #battery mass [kg]                        #DONE first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
 aft_battery_mass= 1000
 battery_mass= 1300
 
 fuel_cg_wing = .55 * l_f #fuel cg location in wing !!!
 fuel_cg_center = 15 #fuel cg location in center (=location of propulsion group) !!!
 
-front_battery_mass_cg = 4.07475 #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
+front_battery_mass_cg = 4.07475 #removable battery cg               #DONE = cargo_front_cg * 300 +   cargo_rear_cg *1000
 aft_battery_mass_cg=21.732
 battery_mass_cg = 17.65
 
