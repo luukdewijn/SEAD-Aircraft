@@ -118,7 +118,7 @@ fuel_cg_center = 15 #fuel cg location in center (=location of propulsion group) 
 
 front_battery_mass_cg = 4.07475 #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
 aft_battery_mass_cg=21.732
-battery_mass_cg = (front_battery_mass_cg*front_battery_mass+aft_battery_mass*aft_battery_mass_cg)/(aft_battery_mass+front_battery_mass)
+battery_mass_cg = 17.65
 
 full_cg_list = np.array([])
 
@@ -144,7 +144,7 @@ full_cg_list = np.append(full_cg_list, list_cg_cargo_rear)
 
 if battery == True:
     #========== LOADING DUE TO BATTERY ============
-    battery_mass_Center = current_weight + battery_mass * battery_mass_cg   #now its one line for the two batteries, not sure if these need to be 2 lines or not
+    battery_mass_Center = current_weight + battery_mass   #now its one line for the two batteries, not sure if these need to be 2 lines or not
 
     cg_battery_add = calculate_new_cg(current_weight,current_cg,battery_mass,battery_mass_cg )
 
