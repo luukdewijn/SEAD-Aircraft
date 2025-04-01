@@ -18,14 +18,14 @@ l_f = 27.165 #fuselage length [m]
 b_n = 1.224 #nacelle width [m]                      #TODO:for step 2 needs to be +25%
 l_nac= 3.408 #nacelle length [m]                    #TODO:for step 2 needs to be +30%
 l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
-X_LEMAC= 13.654 # [m] van de FCOM
+X_LEMAC= 11.84 # [m] van de FCOM
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
 l_h = 13.56 #horizontal tail arm [m]
 print(l_n)
 
 Lambda_w = 4.120423513 * np.pi/180 #sweep angle [rad] (@LE calculated from 3deg at 1/4 chord)
-Lambda_h_4 = 8 * np.pi/180 #sweep angle [rad]
-Lambda_h_2 = 5.646719292 * np.pi/180 #sweep angle [rad]
+Lambda_h_4 = 3 * np.pi/180 #sweep angle [rad]
+Lambda_h_2 = 1.877 * np.pi/180 #sweep angle [rad]
 horizontal_efficiency = 0.8 #horizontal tail efficiency FIND THESE
 oswald_efficiency = 0.8 #horizontal tail efficiency !!!
 downwash_rate = 0 #downwash per AOA, 0 for T-tail
@@ -83,8 +83,8 @@ print("taper wing:", lambda_w)
 # ======== LOADING DIAGRAM SHIT ========
 
 #CG VALUES
-OEW = 130580.91 #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
-OEW_kg = OEW/9.81 #operative emty weight [kg]
+OEW = 13311*9.81 #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
+OEW_kg = 13311 #operative emty weight [kg]
 OEW_cg = 15 #operating empty weight cg location [m] !!!
 
 front_seat_cg = .25 * l_f #x_cg of front row seats !!!
