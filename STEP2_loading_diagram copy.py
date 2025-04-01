@@ -83,9 +83,9 @@ print("taper wing:", lambda_w)
 # ======== LOADING DIAGRAM SHIT ========
 
 #CG VALUES
-OEW = 130580.91 #operating empty weight [N]           #TODO:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
+OEW = 139489.4 #operating empty weight [N]           #DONE:for step 2 needs to be wing group is 10% lower and fusalage 5% higher
 OEW_kg = OEW/9.81 #operative emty weight [kg]
-OEW_cg = 15 #operating empty weight cg location [m] !!!
+OEW_cg = 11.4142 #operating empty weight cg location [m] !!!
 
 front_seat_cg = .25 * l_f #x_cg of front row seats !!!
 seat_pitch = 29 * 0.0254 #seat pitch in meters
@@ -107,14 +107,18 @@ fuel_mass = 2689 #Fuel mass [kg]                             #TODO les to compen
 fuel_fraction_wing = 0 # FIND THESE FRACTIONS
 fuel_fraction_center = 1
 
-battery = False #True if battery is present, False if not  #TODO step 2 there is 2 batery
+battery = True #True if battery is present, False if not  #TODO step 2 there is 2 batery
 
-battery_mass= 0 #battery mass [kg]                        #TODO first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
+front_battery_mass= 300 #battery mass [kg]                        #TODO first batery (underneth front cargo 300KG) second underneth rear cargo 1000kg)
+aft_battery_mass= 1000
+battery_mass= 1300
 
 fuel_cg_wing = .55 * l_f #fuel cg location in wing !!!
 fuel_cg_center = 15 #fuel cg location in center (=location of propulsion group) !!!
 
-battery_mass_cg = 0 #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
+front_battery_mass_cg = 4.07475 #removable battery cg               #TODO = cargo_front_cg * 300 +   cargo_rear_cg *1000
+aft_battery_mass_cg=21.732
+battery_mass_cg = (front_battery_mass_cg*front_battery_mass+aft_battery_mass*aft_battery_mass_cg)/(aft_battery_mass+front_battery_mass)
 
 full_cg_list = np.array([])
 
@@ -140,7 +144,7 @@ full_cg_list = np.append(full_cg_list, list_cg_cargo_rear)
 
 if battery == True:
     #========== LOADING DUE TO BATTERY ============
-    battery_mass_Center = current_weight + battery_mass * battery_mass_cg
+    battery_mass_Center = current_weight + front_battery_mass * front_battery_mass_cg + aft_battery_mass * aft_battery_mass_cg  #now its one line for the two batteries, not sure if these need to be 2 lines or not
 
     cg_battery_add = calculate_new_cg(current_weight,current_cg,battery_mass,battery_mass_cg )
 
