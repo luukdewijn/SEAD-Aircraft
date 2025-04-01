@@ -144,7 +144,7 @@ full_cg_list = np.append(full_cg_list, list_cg_cargo_rear)
 
 if battery == True:
     #========== LOADING DUE TO BATTERY ============
-    battery_mass_Center = current_weight + front_battery_mass * front_battery_mass_cg + aft_battery_mass * aft_battery_mass_cg  #now its one line for the two batteries, not sure if these need to be 2 lines or not
+    battery_mass_Center = current_weight + battery_mass * battery_mass_cg   #now its one line for the two batteries, not sure if these need to be 2 lines or not
 
     cg_battery_add = calculate_new_cg(current_weight,current_cg,battery_mass,battery_mass_cg )
 
