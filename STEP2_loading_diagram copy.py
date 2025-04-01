@@ -18,7 +18,7 @@ l_f = 27.165 #fuselage length [m]
 b_n = 1.53 #nacelle width [m]                      #DONE:for step 2 needs to be +25%
 l_nac= 4.4304 #nacelle length [m]                    #DONE:for step 2 needs to be +30%
 l_fn = 10.77 #distance from the wing leading edge to nose [m]?? not sure about this
-X_LEMAC= 13.654 # [m] van de FCOM
+X_LEMAC= 11.84 # [m] van de FCOM
 l_n = X_LEMAC+c/4-22.1-l_nac #nacelle arm length [m] FIND THIS VALUE!!!! (=MAC c/4 distance - distance to back of engine)
 l_h = 13.56 #horizontal tail arm [m]
 print(l_n)
@@ -37,13 +37,13 @@ T_cruise = -18.68 + 273.15 #cruise temperature [K] at FL170
 delta_flap = 0.52 #flap deflection [rad] Gebaseerd op landing setting van 30 degrees
 C_m_ac_flap = -0.30 #zero lift moment coefficient due to flap deflection above (Read from graph L7 S23)
 C_L_0 = 0.35 #zero AOA lift coefficient. Rough estimate?!!!
-C_L_w_cruise = .5 #reference aerodynamic ATR 72 lift coefficient at cruise calculation
+C_L_w_cruise = .6 #reference aerodynamic ATR 72 lift coefficient at cruise calculation
 rho_0 = 1.225 #air density at sea level [kg/m^3]
 rho_cruise = 0.72176 #air density at cruise altitude (FL170=1700ft) [kg/m^3]
 MTOW = 23000 * 9.81 #max take-off weight [N]
 C_m_0_airfoil = -0.09 # Rough estimate?!!!
 print(b_n*l_nac/b)
-C_m_0_nacelle = -0.03 # Rough estimate?!!!
+C_m_0_nacelle = -0.004
 C_L_h = -0.35 * A_h**(1/3) #Horizontal tail lift coefficient (FORMULA FROM ADSSE L8 S17)
 print(C_L_h)
 
@@ -100,12 +100,12 @@ cargo_rear_fraction = 0.445 #fraction of cargo in rear cargo hold
 cargo_weight_front = cargo_front_fraction * total_cargo_weight
 cargo_weight_rear = cargo_rear_fraction * total_cargo_weight
 
-cargo_front_cg = .15 * l_f #cargo cg location of front cargo hold !!!
-cargo_rear_cg = .8 * l_f #cargo cg location of rear cargo hold !!!
+cargo_front_cg = .17 * l_f #cargo cg location of front cargo hold !!!
+cargo_rear_cg = .76 * l_f #cargo cg location of rear cargo hold !!!
 
 fuel_mass = 18910.63/9.81 #Fuel mass [kg]                             #DONE les to compensate for ohter weight
-fuel_fraction_wing = 0 # FIND THESE FRACTIONS
-fuel_fraction_center = 1
+fuel_fraction_wing = 1 # geflipt
+fuel_fraction_center = 0
 
 battery = True #True if battery is present, False if not  #DONE step 2 there is 2 batery
 
@@ -113,8 +113,8 @@ front_battery_mass= 300 #battery mass [kg]                        #DONE first ba
 aft_battery_mass= 1000
 battery_mass= 1300
 
-fuel_cg_wing = .55 * l_f #fuel cg location in wing !!!
-fuel_cg_center = 15 #fuel cg location in center (=location of propulsion group) !!!
+fuel_cg_wing = .37 * l_f #fuel cg location in wing !!!
+fuel_cg_center = 7.21 #fuel cg location in center (=location of propulsion group) !!!
 
 front_battery_mass_cg = 4.07475 #removable battery cg               #DONE = cargo_front_cg * 300 +   cargo_rear_cg *1000
 aft_battery_mass_cg=21.732
